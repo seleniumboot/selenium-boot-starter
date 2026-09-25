@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'io.github.seleniumboot:selenium-boot:3.5.0'
+}
+
+test {
+    useTestNG {
+        suites 'testng.xml'
+    }
+
+    // Forward -Dbrowser=firefox, -Denv=staging etc. to the framework. Forward only what you
+    // set: copying every JVM property (java.home, ...) breaks the run when the test JVM
+    // differs from Gradle's.
+    ['browser', 'env'].each { key ->
+        System.getProperty(key)?.with { systemProperty key, it }
+    }
+
+    // Put the HTML report and metrics under build/ (the framework defaults to target/)
+    systemProperty 'seleniumboot.reports.dir', "${layout.buildDirectory.get().asFile}/selenium-boot-report"
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
