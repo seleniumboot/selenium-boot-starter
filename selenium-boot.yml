@@ -1,0 +1,17 @@
+# Every key is optional — delete anything you don't need.
+# Full reference: https://docs.seleniumboot.com/docs/configuration
+execution:
+  mode: local
+  baseUrl: https://example.com   # point this at your app
+
+browser:
+  name: chrome                   # chrome | firefox | edge
+  headless: true                 # set false to watch the browser
+
+retry:
+  enabled: true
+  maxAttempts: 2
+
+timeouts:
+  explicit: 10
+  pageLoad: 30
