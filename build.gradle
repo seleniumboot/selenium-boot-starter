@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'io.github.seleniumboot:selenium-boot:3.5.0'
+    testImplementation 'io.github.seleniumboot:selenium-boot:3.9.0'
 }
 
 test {
