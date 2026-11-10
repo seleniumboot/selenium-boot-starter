@@ -37,10 +37,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <!-- forward -Dbrowser=firefox, -Denv=staging etc. to the framework -->
-                    <systemPropertyVariables>
-                        <browser>${browser}</browser>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

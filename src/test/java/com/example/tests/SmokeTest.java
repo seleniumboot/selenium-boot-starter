@@ -3,7 +3,6 @@ package com.example.tests;
 import com.example.pages.ExamplePage;
 import com.seleniumboot.locator.Role;
 import com.seleniumboot.test.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SmokeTest extends BaseTest {
@@ -21,10 +20,10 @@ public class SmokeTest extends BaseTest {
     }
 
     @Test
-    public void pageObjectReadsTheHeading() {
+    public void pageObjectExposesTheLocators() {
         openFixture();
         ExamplePage page = new ExamplePage(getDriver());
-        Assert.assertEquals(page.heading(), "Example Domain");
-        Assert.assertTrue(page.hasMoreInfoLink());
+        assertThat(page.heading()).isVisible();
+        assertThat(page.moreInfoLink()).isVisible();
     }
 }

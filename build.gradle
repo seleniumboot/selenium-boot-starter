@@ -22,10 +22,10 @@ test {
         suites 'testng.xml'
     }
 
-    // Forward -Dbrowser=firefox, -Denv=staging etc. to the framework. Forward only what you
+    // Forward -Denv=staging to the framework. Forward only what you
     // set: copying every JVM property (java.home, ...) breaks the run when the test JVM
     // differs from Gradle's.
-    ['browser', 'env'].each { key ->
+    ['env'].each { key ->
         System.getProperty(key)?.with { systemProperty key, it }
     }
 

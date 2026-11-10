@@ -20,8 +20,8 @@ Needs Java 17+ and Chrome (or Firefox). No driver setup — Selenium Manager han
 ├── selenium-boot.yml             # browser, baseUrl, retry, timeouts — all optional
 ├── testng.xml                    # suite: runs everything in com.example.tests
 └── src/test/java/com/example/
-    ├── pages/ExamplePage.java    # page object on BasePage (wait-backed click/type/getText)
-    └── tests/SmokeTest.java      # a locator-style test and a page-object test
+    ├── pages/ExamplePage.java    # page object: role-based locators, no CSS/XPath
+    └── tests/SmokeTest.java      # a role-locator test and a page-object test
 ```
 
 ## Make it yours
@@ -30,7 +30,7 @@ Needs Java 17+ and Chrome (or Firefox). No driver setup — Selenium Manager han
 2. Replace `ExamplePage` and `SmokeTest` with your own pages and tests.
 3. Rename the `com.example` package and the group id in your build file.
 
-Try `./mvnw test -Dbrowser=firefox` (or `./gradlew test -Dbrowser=firefox`), or set `headless: false` to watch it run.
+Switch browsers with `browser.name: firefox` in `selenium-boot.yml`, or set `headless: false` to watch it run.
 
 ## Learn more
 
